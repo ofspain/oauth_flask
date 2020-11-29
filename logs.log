@@ -1,0 +1,86 @@
+[2020-11-14 16:30:34]: 14252 INFO  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[2020-11-14 16:31:16]: 14252 DEBUG Dispatching token_type Bearer request to <oauthlib.oauth2.rfc6749.tokens.BearerToken object at 0x7f7d132e0570>.
+[2020-11-14 16:31:16]: 14252 DEBUG Validate bearer token None
+[2020-11-14 16:31:16]: 14252 DEBUG Bearer token not found.
+[2020-11-14 16:31:17]: 14252 INFO 127.0.0.1 - - [14/Nov/2020 16:31:17] "GET / HTTP/1.1" 200 -
+[2020-11-14 16:31:17]: 14252 INFO 127.0.0.1 - - [14/Nov/2020 16:31:17] "GET /swaggerui/swagger-ui-standalone-preset.js HTTP/1.1" 200 -
+[2020-11-14 16:31:17]: 14252 INFO 127.0.0.1 - - [14/Nov/2020 16:31:17] "GET /swaggerui/droid-sans.css HTTP/1.1" 200 -
+[2020-11-14 16:31:17]: 14252 INFO 127.0.0.1 - - [14/Nov/2020 16:31:17] "GET /swaggerui/swagger-ui.css HTTP/1.1" 200 -
+[2020-11-14 16:31:17]: 14252 INFO 127.0.0.1 - - [14/Nov/2020 16:31:17] "GET /swaggerui/swagger-ui-bundle.js HTTP/1.1" 200 -
+[2020-11-14 16:31:17]: 14252 INFO 127.0.0.1 - - [14/Nov/2020 16:31:17] "GET /swaggerui/favicon-16x16.png HTTP/1.1" 200 -
+[2020-11-14 16:31:18]: 14252 ERROR Unable to render schema
+Traceback (most recent call last):
+  File "/home/femi/PycharmProjects/ApiProject/venv/lib/python3.5/site-packages/flask_restplus/api.py", line 483, in __schema__
+    self._schema = Swagger(self).as_dict()
+  File "/home/femi/PycharmProjects/ApiProject/venv/lib/python3.5/site-packages/flask_restplus/swagger.py", line 198, in as_dict
+    **kwargs
+  File "/home/femi/PycharmProjects/ApiProject/venv/lib/python3.5/site-packages/flask_restplus/swagger.py", line 377, in serialize_resource
+    doc = self.extract_resource_doc(resource, url, route_doc=route_doc)
+  File "/home/femi/PycharmProjects/ApiProject/venv/lib/python3.5/site-packages/flask_restplus/swagger.py", line 296, in extract_resource_doc
+    method_params = self.expected_params(method_doc)
+  File "/home/femi/PycharmProjects/ApiProject/venv/lib/python3.5/site-packages/flask_restplus/swagger.py", line 339, in expected_params
+    'schema': self.serialize_schema(expect),
+  File "/home/femi/PycharmProjects/ApiProject/venv/lib/python3.5/site-packages/flask_restplus/swagger.py", line 554, in serialize_schema
+    self.register_model(model)
+  File "/home/femi/PycharmProjects/ApiProject/venv/lib/python3.5/site-packages/flask_restplus/swagger.py", line 575, in register_model
+    raise ValueError('Model {0} not registered'.format(name))
+ValueError: Model Add User not registered
+[2020-11-14 16:31:18]: 14252 INFO 127.0.0.1 - - [14/Nov/2020 16:31:18] "GET /swagger.json HTTP/1.1" 500 -
+[2020-11-14 16:31:27]: 14252 DEBUG Dispatching token_type Bearer request to <oauthlib.oauth2.rfc6749.tokens.BearerToken object at 0x7f7d132e0570>.
+[2020-11-14 16:31:27]: 14252 DEBUG Validate bearer token None
+[2020-11-14 16:31:27]: 14252 DEBUG Bearer token not found.
+[2020-11-14 16:31:27]: 14252 INFO 127.0.0.1 - - [14/Nov/2020 16:31:27] "GET /api/docs/ HTTP/1.1" 200 -
+[2020-11-14 16:31:28]: 14252 INFO 127.0.0.1 - - [14/Nov/2020 16:31:28] "GET /api/docs/swagger-ui.css HTTP/1.1" 200 -
+[2020-11-14 16:31:28]: 14252 INFO 127.0.0.1 - - [14/Nov/2020 16:31:28] "GET /api/docs/swagger-ui-standalone-preset.js HTTP/1.1" 200 -
+[2020-11-14 16:31:28]: 14252 INFO 127.0.0.1 - - [14/Nov/2020 16:31:28] "GET /api/docs/swagger-ui-bundle.js HTTP/1.1" 200 -
+[2020-11-14 16:31:28]: 14252 INFO 127.0.0.1 - - [14/Nov/2020 16:31:28] "GET /api/docs/favicon-16x16.png HTTP/1.1" 200 -
+[2020-11-14 16:31:28]: 14252 INFO 127.0.0.1 - - [14/Nov/2020 16:31:28] "GET /static/swagger.json HTTP/1.1" 200 -
+[2020-11-14 18:48:33]: 19041 INFO  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[2020-11-14 18:48:44]: 19041 DEBUG Dispatching token_type Bearer request to <oauthlib.oauth2.rfc6749.tokens.BearerToken object at 0x7f8ada236410>.
+[2020-11-14 18:48:44]: 19041 DEBUG Validate bearer token None
+[2020-11-14 18:48:44]: 19041 DEBUG Bearer token not found.
+[2020-11-14 18:48:44]: 19041 INFO 127.0.0.1 - - [14/Nov/2020 18:48:44] "GET /api/docs/ HTTP/1.1" 200 -
+[2020-11-14 18:48:45]: 19041 INFO 127.0.0.1 - - [14/Nov/2020 18:48:45] "GET /api/docs/swagger-ui-bundle.js HTTP/1.1" 304 -
+[2020-11-14 18:48:45]: 19041 INFO 127.0.0.1 - - [14/Nov/2020 18:48:45] "GET /api/docs/swagger-ui-standalone-preset.js HTTP/1.1" 304 -
+[2020-11-14 18:48:45]: 19041 INFO 127.0.0.1 - - [14/Nov/2020 18:48:45] "GET /api/docs/favicon-16x16.png HTTP/1.1" 200 -
+[2020-11-14 18:48:45]: 19041 INFO 127.0.0.1 - - [14/Nov/2020 18:48:45] "GET /static/swagger.json HTTP/1.1" 200 -
+[2020-11-14 18:48:54]: 19041 DEBUG Dispatching token_type Bearer request to <oauthlib.oauth2.rfc6749.tokens.BearerToken object at 0x7f8ada236410>.
+[2020-11-14 18:48:54]: 19041 DEBUG Validate bearer token None
+[2020-11-14 18:48:54]: 19041 DEBUG Bearer token not found.
+[2020-11-14 18:48:54]: 19041 INFO 127.0.0.1 - - [14/Nov/2020 18:48:54] "GET / HTTP/1.1" 200 -
+[2020-11-14 18:48:54]: 19041 INFO 127.0.0.1 - - [14/Nov/2020 18:48:54] "GET /swaggerui/droid-sans.css HTTP/1.1" 200 -
+[2020-11-14 18:48:54]: 19041 INFO 127.0.0.1 - - [14/Nov/2020 18:48:54] "GET /swaggerui/swagger-ui.css HTTP/1.1" 200 -
+[2020-11-14 18:48:54]: 19041 INFO 127.0.0.1 - - [14/Nov/2020 18:48:54] "GET /swaggerui/swagger-ui-standalone-preset.js HTTP/1.1" 200 -
+[2020-11-14 18:48:54]: 19041 INFO 127.0.0.1 - - [14/Nov/2020 18:48:54] "GET /swaggerui/swagger-ui-bundle.js HTTP/1.1" 200 -
+[2020-11-14 18:48:54]: 19041 INFO 127.0.0.1 - - [14/Nov/2020 18:48:54] "GET /swaggerui/favicon-16x16.png HTTP/1.1" 200 -
+[2020-11-14 18:48:54]: 19041 ERROR Unable to render schema
+Traceback (most recent call last):
+  File "/home/femi/PycharmProjects/ApiProject/venv/lib/python3.5/site-packages/flask_restplus/api.py", line 483, in __schema__
+    self._schema = Swagger(self).as_dict()
+  File "/home/femi/PycharmProjects/ApiProject/venv/lib/python3.5/site-packages/flask_restplus/swagger.py", line 198, in as_dict
+    **kwargs
+  File "/home/femi/PycharmProjects/ApiProject/venv/lib/python3.5/site-packages/flask_restplus/swagger.py", line 377, in serialize_resource
+    doc = self.extract_resource_doc(resource, url, route_doc=route_doc)
+  File "/home/femi/PycharmProjects/ApiProject/venv/lib/python3.5/site-packages/flask_restplus/swagger.py", line 296, in extract_resource_doc
+    method_params = self.expected_params(method_doc)
+  File "/home/femi/PycharmProjects/ApiProject/venv/lib/python3.5/site-packages/flask_restplus/swagger.py", line 339, in expected_params
+    'schema': self.serialize_schema(expect),
+  File "/home/femi/PycharmProjects/ApiProject/venv/lib/python3.5/site-packages/flask_restplus/swagger.py", line 554, in serialize_schema
+    self.register_model(model)
+  File "/home/femi/PycharmProjects/ApiProject/venv/lib/python3.5/site-packages/flask_restplus/swagger.py", line 575, in register_model
+    raise ValueError('Model {0} not registered'.format(name))
+ValueError: Model Add User not registered
+[2020-11-14 18:48:55]: 19041 INFO 127.0.0.1 - - [14/Nov/2020 18:48:55] "GET /swagger.json HTTP/1.1" 500 -
+[2020-11-14 18:49:02]: 19041 DEBUG Dispatching token_type Bearer request to <oauthlib.oauth2.rfc6749.tokens.BearerToken object at 0x7f8ada236410>.
+[2020-11-14 18:49:02]: 19041 DEBUG Validate bearer token None
+[2020-11-14 18:49:02]: 19041 DEBUG Bearer token not found.
+[2020-11-14 18:49:02]: 19041 INFO 127.0.0.1 - - [14/Nov/2020 18:49:02] "GET /auth/login HTTP/1.1" 200 -
+[2020-11-14 18:49:02]: 19041 INFO 127.0.0.1 - - [14/Nov/2020 18:49:02] "GET /static/css/bootstrap.css HTTP/1.1" 200 -
+[2020-11-14 18:49:02]: 19041 INFO 127.0.0.1 - - [14/Nov/2020 18:49:02] "GET /static/css/responsive.css HTTP/1.1" 200 -
+[2020-11-14 18:49:02]: 19041 INFO 127.0.0.1 - - [14/Nov/2020 18:49:02] "GET /static/css/style.css HTTP/1.1" 200 -
+[2020-11-14 18:49:02]: 19041 INFO 127.0.0.1 - - [14/Nov/2020 18:49:02] "GET /static/css/font-awesome.min.css HTTP/1.1" 200 -
+[2020-11-14 18:49:05]: 19041 INFO 127.0.0.1 - - [14/Nov/2020 18:49:05] "GET /static/favicon.ico HTTP/1.1" 404 -
+[2020-11-14 18:50:07]: 19041 DEBUG Dispatching token_type Bearer request to <oauthlib.oauth2.rfc6749.tokens.BearerToken object at 0x7f8ada236410>.
+[2020-11-14 18:50:07]: 19041 DEBUG Validate bearer token None
+[2020-11-14 18:50:07]: 19041 DEBUG Bearer token not found.
+[2020-11-14 18:50:07]: 19041 INFO 127.0.0.1 - - [14/Nov/2020 18:50:07] "POST /auth/login HTTP/1.1" 200 -

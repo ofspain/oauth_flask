@@ -1,0 +1,373 @@
+{
+
+"info": {
+    "description": "A flask restful application with oauth enabled and swagger documentation",
+    "version": "1.0",
+    "title": "Card App",
+    "contact": {
+      "email": ["ayenibabalola86@gmail.com","ayenibabalola86@yahoo.com"]
+    },
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "swagger": "2.0",
+  "tags": [
+    {
+      "name": "users",
+      "description": "Everything about your Users",
+      "externalDocs": {
+        "description": "Find out more",
+        "url": "http://swagger.io"
+      }
+    },
+
+    {
+      "name": "oauth",
+      "description": "Everything about your Oauth",
+      "externalDocs": {
+        "description": "Find out more",
+        "url": "http://swagger.io"
+      }
+    }
+  ],
+  "paths": {
+        "/users/":{
+            "post":{
+            "tags":[
+                "users"
+            ],
+            "summary": "Add New User",
+            "description":"Add New User",
+            "consumes": [
+              "application/json"
+            ],
+            "produces": [
+              "application/json"
+            ],
+            "parameters": [
+              {
+                "in": "body",
+                "name": "body",
+                "description": "User object that needs to be added to the store",
+                "required": true,
+                "schema": {
+                  "$ref": "#/definitions/AddUser"
+                }
+              }
+            ],
+            "responses":{
+              "200":{
+                "description": "OK"
+
+              }
+
+            }
+          },
+            "get": {
+              "tags": [
+                "users"
+              ],
+              "summary": "Finds all users",
+              "description": "Query the user with offset and limit as parameter",
+              "produces": [
+                  "application/json"
+              ],
+              "parameters": [
+              {
+                "name": "offset",
+                "in": "query",
+                "description": "starting point",
+                "required": true,
+                "type": "integer",
+                "default": 0
+              },
+              {
+                "name": "limit",
+                "in": "query",
+                "description": "number of result set",
+                "required": true,
+                "type": "integer",
+                "items": {
+                  "type": "integer",
+                  "enum": [
+                    2,4,6,8,10,20
+                  ]
+                },
+                "default": 2
+              }
+
+            ],
+            "responses": {
+                "200": {
+                  "description": "successful operation",
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/UserSchema"
+                    }
+                  }
+                },
+                "400": {
+                  "description": "Invalid status value"
+                }
+            }
+          }
+
+        },
+        "/users/{userId}": {
+            "get": {
+              "tags": [
+                "users"
+              ],
+              "summary": "Get user by user id",
+              "description": "Return a single user",
+              "operationId": "getUserById",
+              "produces": [
+                "application/json"
+              ],
+              "parameters": [
+                {
+                  "name": "userId",
+                  "in": "path",
+                  "description": "The id of user to be fetched ",
+                  "required": true,
+                  "type": "integer",
+                  "format": "int64"
+                }
+              ],
+              "responses": {
+                  "200": {
+                    "description": "successful operation",
+                    "schema": {
+                      "$ref": "#/definitions/UserSchema"
+                    }
+                  },
+                  "400": {
+                    "description": "Invalid ID supplied"
+                  },
+                  "404": {
+                    "description": "User not found"
+                  }
+                }
+              },
+            "delete": {
+              "tags": [
+                "users"
+              ],
+              "summary": "Delete a specific user",
+              "description": "Removes the specified user from the database",
+              "parameters": [
+                {
+                  "name": "userId",
+                  "in": "path",
+                  "description": "The id of user to be to be deleted ",
+                  "required": true,
+                  "type": "integer",
+                  "format": "int64"
+                }
+              ],
+              "responses": {
+                "204": {
+                    "description": "successful operation"
+                  },
+                  "400": {
+                    "description": "Invalid ID supplied"
+                  },
+                  "404": {
+                    "description": "User not found"
+                  }
+              }
+            }
+          },
+
+        "/clients/":{
+            "post":{
+            "tags":[
+                "oauth"
+            ],
+            "summary": "Add New Client",
+            "description":"Add New Client",
+            "consumes": [
+              "application/json"
+            ],
+            "produces": [
+              "application/json"
+            ],
+            "parameters": [
+              {
+                "in": "body",
+                "name": "body",
+                "description": "Client object that needs to be added to the store",
+                "required": true,
+                "schema": {
+                  "$ref": "#/definitions/AddClient"
+                }
+              }
+            ],
+            "responses":{
+              "200":{
+                "description": "OK"
+
+              }
+
+            }
+          }
+
+        }
+  },
+  "securityDefinitions": {
+    "user_auth": {
+      "type": "oauth2",
+      "authorizationUrl": "/auth/oauth2/authorize",
+      "flow": "accessCode",
+      "scopes": {
+        "write:users": "modify user property associated with your account",
+        "read:users": "read your user property associated with your account"
+      }
+    }
+  },
+  "definitions": {
+    "AddUser": {
+        "type": "object",
+        "properties":   {
+            "email": {
+              "type":"string",
+              "description":"User unique email",
+              "required": true
+            },
+            "last": {
+              "type":"string",
+              "description":"User unique email",
+              "required": true
+            },
+            "first":{
+              "type":"string",
+              "description":"User first name",
+              "minLength":8,
+              "maxLength":32
+            },
+            "password":{
+              "type":"string",
+              "description":"User password",
+              "minLength":8,
+              "maxLength":32
+            },
+            "role":{
+              "type":"string",
+              "description":"User Role in system",
+              "required": true,
+              "items": {
+                  "type": "string",
+                  "enum": [
+                    "User", "Moderator", "Administrator"
+                  ]
+                },
+              "default": "User"
+            }
+        }
+    },
+
+    "AddClient": {
+        "type": "object",
+        "properties":   {
+            "user_id": {
+              "type":"integer",
+              "format": "int64",
+              "description":"Associated user id",
+              "required": true
+            },
+            "name": {
+              "type":"string",
+              "description":"Client alias"
+            },
+            "redirect_uris":{
+              "type":"array",
+              "items":{
+                  "type": "string"
+              },
+              "description":"Redirect Uri"
+            },
+            "default_scopes":{
+              "type":"array",
+              "items":{
+                  "type": "string"
+              },
+              "description":"Clients scope"
+            }
+        }
+    },
+
+
+
+    "UserSchema": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Unique Id of user",
+          "readOnly":true
+        },
+        "email": {
+          "type":"string",
+          "description":"User unique email"
+        },
+        "last":{
+          "type":"string",
+          "description":"User last name"
+        },
+        "first":{
+          "type":"string",
+          "description":"User first name",
+          "minLength":8,
+          "maxLength":32
+        }
+      }
+    },
+    "OauthSchema":{
+        "type": "object",
+        "properties": {
+            "id": {
+              "type": "integer",
+              "format": "int64",
+              "description": "Unique Id of client",
+              "readOnly":true
+            },
+            "name": {
+                "type": "string",
+                "description":  "Client alias"
+            },
+            "client_type": {
+                "type": "string",
+                "description": "Client type"
+            },
+            "client_id": {
+                "type": "string",
+                "description": "Client unique system identity",
+                "readOnly": true
+            },
+            "user_id": {
+              "type": "integer",
+              "format": "int64",
+              "description": "Unique Id of user associated with client",
+              "readOnly":true
+            },
+            "default_scopes": {
+                "type": "list",
+                "description": "Default scope associated with this client"
+            },
+            "redirect_uris": {
+                "type": "list",
+                "description": "Redirect URL associated with this client"
+            },
+            "client_secret": {
+                "type": "string",
+                "description": "Client unique system identity",
+                "readOnly": true
+            }
+        }
+    }
+  }
+}

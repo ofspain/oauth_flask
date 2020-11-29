@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Authorization{% endblock %}
+
+{% block page_content %}
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h3>Your permission of the following scope(s) is requested</h3>
+        <hr />
+          {% for s in scopes %}
+            <div class="form-group">
+                <label>{{s}}</label>
+            </div>
+          {% endfor %}
+
+      </div>
+    </div>
+    <form action="/auth/oauth2/authorize" method="post">
+      <input type="hidden" name="client_id" value="{{ client.client_id }}">
+      <input type="hidden" name="scope" value="{{ scopes|join(' ') }}">
+      <input type="hidden" name="response_type" value="{{ response_type }}">
+      <input type="hidden" name="redirect_uri" value="{{ redirect_uri }}">
+      {% if state %}
+        <input type="hidden" name="state" value="{{ state }}">
+      {% endif %}
+      <input type="submit" name="confirm" value="yes"/>
+      <input type="submit" name="confirm" value="no"/>
+    </form>
+  </div>
+{% endblock %}
